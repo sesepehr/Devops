@@ -1,0 +1,9 @@
+FROM ubuntu
+MAINTAINER sepehr
+RUN apt-get update && apt-get install  apache2 -y
+RUN apt-get install  apache2-utils -y
+RUN apt-get clean
+RUN echo "Hello my first DockerFile" > /var/www/html/index.html
+EXPOSE 8090
+CMD apachectl -D FOREGROUND
+###ENTRYPOINT  ["/usr/sbin/httpd"]
